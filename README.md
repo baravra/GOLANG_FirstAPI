@@ -23,3 +23,4 @@ Este projeto é uma API RESTful em Go que permite gerenciar produtos. A API inte
    ```
 
 ## A aplicação estará disponível em http://localhost:8080.
+### Url da aula assistida para criação do projeto: https://youtu.be/3p4mpId_ZU8
