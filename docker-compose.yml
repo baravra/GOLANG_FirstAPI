@@ -1,0 +1,31 @@
+# INSTRUCOES PARA O DOCKER: 
+# fazer o download da imagem do postgress
+# mapear a porta que o banco vai rodar 
+# outras informacoes de configuração do postgress
+
+# version: "3.9"
+
+services:
+  go-app:
+    container_name: go-app
+    image: go-api-tutorial
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - go_db
+
+  go_db:
+    container_name: go_db #nome do container
+    image: postgres:12 #qual imagem do postress a gente vai usar
+    environment: #variaveis de ambiente
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes: #mapear o volume do docker no computador => para que os dados do container persistam
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
